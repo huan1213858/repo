@@ -1,0 +1,55 @@
+package com.imp.service.impl;
+
+
+import com.imp.bean.Product;
+import com.imp.bean.Provider;
+import com.imp.dao.ProviderMapper;
+import com.imp.service.ProviderService;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * @author hdw on 2022/4/29 0:27
+ */
+@Service
+public class ProviderServiceImpl implements ProviderService {
+    @Resource
+    private ProviderMapper providerMapper;
+
+    @Override
+    public List<Provider> getAllProviders() {
+        return providerMapper.getAllProviders();
+    }
+
+    @Override
+    public List<Product> getProviderRecordsByProviderId(Integer providerId) {
+        return providerMapper.getProviderRecordsByProviderId(providerId);
+    }
+
+    @Override
+    public Provider getProviderByProviderId(Integer providerId) {
+        return providerMapper.getProviderByProviderId(providerId);
+    }
+
+    @Override
+    public List<Provider> getProviderByProviderPhoneNumber(String phoneNumber) {
+        return providerMapper.getProviderByProviderPhoneNumber(phoneNumber);
+    }
+
+    @Override
+    public int deleteProviderByProviderId(Integer providerId) {
+        return providerMapper.deleteProviderByProviderId(providerId);
+    }
+
+    @Override
+    public int addProvider(Provider provider) {
+        return providerMapper.addProvider(provider);
+    }
+
+    @Override
+    public int updateProvider(Provider provider) {
+        return providerMapper.updateProvider(provider);
+    }
+}
